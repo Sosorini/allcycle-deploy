@@ -1,5 +1,9 @@
 import fetch from "node-fetch";
-
+/**
+ * function to fetch data to google vision-api and receive results
+ * @param {uri} data - image data parsed to base64 type
+ * @returns response detected text or error message
+*/
 async function callVisionAPI(uri) {
   const body = {
     requests: [

@@ -34,10 +34,10 @@ const Text = styled.span`
   }
 `;
 
-function HeadingLine({ title }) {
+function HeadingLine() {
   return (
     <Container>
-      <Title>{title}</Title>
+      <Title>TOP LANK ITEMS</Title>
       <Text>
         <NextLink href="/product">
           MORE..

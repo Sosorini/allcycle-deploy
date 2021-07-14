@@ -12,7 +12,7 @@ export function getLetterBySlug(slug, fields = []) {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(letterDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
+  const { data } = matter(fileContents);
 
   const items = {};
 
@@ -33,6 +33,7 @@ export function getAllLetterList(fields = []) {
   const slugs = getLetterSlugs();
 
   const quizList = slugs
-    .map((slug) => getLetterBySlug(slug, fields));
+    .map((slug) => getLetterBySlug(slug, fields))
+    .sort((a, b) => b.slug - a.slug);
   return quizList;
 }

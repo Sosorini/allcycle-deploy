@@ -12,7 +12,7 @@ function Quiz({ allQuizList }) {
   return (
     <Container>
       <Message>
-        <H3>재활용 상식퀴즈</H3>
+        <H3 data-testid="title">재활용 상식퀴즈</H3>
         <Text>문제를 맞추고 <br /> 뱃지를 획득하세요</Text>
         <CreatedBy>
           <a href="https://www.freepik.com/vectors/badge">Badge vector created by pikisuperstar - www.freepik.com</a>

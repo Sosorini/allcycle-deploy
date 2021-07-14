@@ -8,7 +8,6 @@ import MainCamera from "@/components/layout/main";
 import Slider from "@/components/layout/main/Slider";
 
 const Container = styled.div`
-  /* width: 100vw; */
   width: 550px;
   height: 90vh;
   margin: 0;
@@ -34,7 +33,7 @@ export default function Main({ topScoreList }) {
   return (
     <Container>
       <MainCamera />
-      <HeadingLine title="TOP LANK ITEMS" />
+      <HeadingLine />
       <Slider list={topScoreList} />
     </Container>
   );
