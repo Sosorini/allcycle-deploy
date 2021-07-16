@@ -26,12 +26,6 @@ const Text = styled.span`
   color: ${(props) => props.theme.white.color};
   font-size: 0.7em;
   background-color: ${(props) => props.theme.lightGreen.color};
-
-
-  &:hover {
-    transition: all 0.5s;
-    transform: translateX(100px);
-  }
 `;
 
 function HeadingLine() {
