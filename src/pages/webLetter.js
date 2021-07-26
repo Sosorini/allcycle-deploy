@@ -9,6 +9,7 @@ import {
   ToggleContainer,
   Toggle,
 } from "@/components/layout/webLetter/styled";
+import urls from "../constants/webletterUrls";
 
 export default function WebLetter({ letters, message }) {
   return (
@@ -26,19 +27,6 @@ export default function WebLetter({ letters, message }) {
 
 export async function getStaticProps() {
   try {
-    const urls = [
-      "http://ecoseoul.or.kr/archives/category/%ec%9e%90%eb%a3%8c/webletter",
-      "http://ecoseoul.or.kr/archives/category/%ec%9e%90%eb%a3%8c/webletter/page/2",
-      "http://ecoseoul.or.kr/archives/category/%ec%9e%90%eb%a3%8c/webletter/page/3",
-      "http://ecoseoul.or.kr/archives/category/%ec%9e%90%eb%a3%8c/webletter/page/4",
-      "http://ecoseoul.or.kr/archives/category/%ec%9e%90%eb%a3%8c/webletter/page/5",
-      "http://ecoseoul.or.kr/archives/category/%ec%9e%90%eb%a3%8c/webletter/page/6",
-      "http://ecoseoul.or.kr/archives/category/%ec%9e%90%eb%a3%8c/webletter/page/7",
-      "http://ecoseoul.or.kr/archives/category/%ec%9e%90%eb%a3%8c/webletter/page/8",
-      "http://ecoseoul.or.kr/archives/category/%ec%9e%90%eb%a3%8c/webletter/page/9",
-      "http://ecoseoul.or.kr/archives/category/%ec%9e%90%eb%a3%8c/webletter/page/10",
-    ];
-
     const letterScraps = [];
 
     for (let i = 0; i < urls.length; i++) {
@@ -56,7 +44,7 @@ export async function getStaticProps() {
       const $ = cheerio.load(html);
       const $bodyList = $("ul.cat-list > li").children("a");
 
-      const asyncFuncs = $bodyList.map(async (i, elem) => {
+      const asyncFuncs = $bodyList.map(async (_, elem) => {
         const { title, href } = elem.attribs;
         const src = $(elem).find("img").attr("src");
         const imageUrl = encodeURI(src);
@@ -103,7 +91,7 @@ export async function getStaticProps() {
 
     return {
       props: { letters },
-      revalidate: 60 * 60 * 1000 * 7,
+      revalidate: 60,
     };
   } catch (err) {
     return {

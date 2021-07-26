@@ -7,7 +7,7 @@ const Container = styled.div`
 `;
 
 const Label = styled.label`
-  padding: 0.4em 1em;
+  /* padding: 0.4em 1em; */
   font-size: 1em;
   text-transform: uppercase;
   font-family: ${(props) => props.theme.fontEng};
@@ -16,7 +16,8 @@ const Label = styled.label`
 const Select = styled.select`
   width: 30vw;
   max-width: 150px;
-  padding: 0.3em 1em;
+  padding: 0.3em;
+  /* padding: 0.3em 1em; */
   border-radius: 2vw;
   font-size: 0.8em;
   color: ${(props) => props.theme.white.color};

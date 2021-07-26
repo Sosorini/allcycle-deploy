@@ -14,10 +14,10 @@ function List({ quizList }) {
 
         return (
           <NextLink key={slug} href={`/_quiz/${slug}`}>
-            <QuizBox>
-              <li>
+            <QuizBox data-testid="slug">
+              <div>
                 <Category>CATEGORY: <strong>{category}</strong></Category>
-              </li>
+              </div>
               <Question>{question}</Question>
             </QuizBox>
           </NextLink>
